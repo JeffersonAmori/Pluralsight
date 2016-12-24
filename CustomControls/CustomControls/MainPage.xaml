@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CustomControls"
+             xmlns:localControl="clr-namespace:CustomControls.Controls"
+             xmlns:localExtension="clr-namespace:CustomControls.MarkupExtension"
+             x:Class="CustomControls.MainPage">
+  <ContentPage.Content>
+    <StackLayout Padding="40">
+      <Label
+        Text="TaskReview"
+        TextColor="Red"
+        FontSize="24" />
+      <Label
+        Text=" Today's Tasks"
+        FontSize="Small"
+        TextColor="{localExtension:ColorFromRGBExtension Red=255, Green=0, Blue=0}"/>
+      <localControl:CustomBoxView 
+        WidthRequest="200"
+        HeightRequest="200"
+        Color="Blue"
+        BorderColor="Red"
+        BindingContext="{x:Reference Name=ThicknessSlider}"
+        BorderThickness="{Binding Path=Value}"/>
+      <Label
+        Text="Thickness"/>
+      <Slider
+        x:Name="ThicknessSlider"
+        Minimum="0"
+        Maximum="500"/>
+    </StackLayout>
+  </ContentPage.Content>
+
+</ContentPage>
